@@ -15,20 +15,41 @@
 <body>
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
   <header>
-
+	
   </header>
   <div role="main">
-
+		<canvas id="canvas" width="800" height="500">
+			Sorry, your browser sucks ... please update that crap to play this awesome game.
+		</canvas>
   </div>
   <footer>
 
   </footer>
-
-  <script>
-    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
-  </script>
+	
+	<script src="../PAC/js/requestAnimationFrame-polyfill.js"></script>
+	<script src="../PAC/js/deferred.js"></script>
+  <script src="../PAC/js/main.js"></script>
+  <script src="../PAC/js/repository.js"></script>
+  <script src="../PAC/js/path.js"></script>
+  <script src="../PAC/js/scene.js"></script>
+  <script src="../PAC/js/obj.js"></script>
+  <script src="../PAC/js/inventory.js"></script>
+  <script src="../PAC/js/character.js"></script>
+  <script src="../PAC/js/events.js"></script>
+  <script src="../PAC/js/commandAction.js"></script>      
+  <script src="../PAC/js/commandBar.js"></script>
+  <script src="../PAC/js/action.js"></script>
+  <script src="../PAC/js/utils.js"></script>
+  <script src="../PAC/js/modal.js"></script>
+  <script src="../PAC/js/animation.js"></script>
+  <script src="../PAC/js/textManager.js"></script>
+  
+  <script src="js/game.js"></script>
 </body>
 </html>
+
+<!-- Aspect ratio 16x10
+	800x500
+	700x437.5
+	600x375
+-->
