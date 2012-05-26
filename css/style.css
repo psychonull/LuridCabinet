@@ -11,3 +11,8 @@
         width: 100% !important;
         height: 100% !important;
 }
+
+canvas {
+	max-width: 800px;
+	width: 100%;
+}
