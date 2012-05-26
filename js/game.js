@@ -50,37 +50,49 @@
 			x: 185,
 			y: 200,
 			width: 70,
-			height: 116
+			height: 116,
+			hasDiagonals: true
 	});
 	
-	var kidRightFrames = [];
+	var kidUpRightFrames = [];
 	for(var i=70; i<350; i+=70){
-		kidRightFrames.push({
-			x: i,
-			y: 0,
-			width: 70,
-			height: 116
-		});	
-	}
-	var kidLeftFrames = [];
-	for(var i=350; i<630; i+=70){
-		kidLeftFrames.push({
-			x: i,
-			y: 0,
-			width: 70,
-			height: 116
-		});	
-	}
-	var kidUpFrames = [];
-	for(var i=70; i<350; i+=70){
-		kidUpFrames.push({
+		kidUpRightFrames.push({
 			x: i,
 			y: 116,
 			width: 70,
 			height: 116
 		});	
-	}
-	var kidDownFrames = kidLeftFrames;
+	};
+	
+	var kidUpLeftFrames = [];
+	for(var i=350; i<630; i+=70){
+		kidUpLeftFrames.push({
+			x: i,
+			y: 116,
+			width: 70,
+			height: 116
+		});	
+	};
+	
+	var kidDownRightFrames = [];
+	for(var i=70; i<350; i+=70){
+		kidDownRightFrames.push({
+			x: i,
+			y: 0,
+			width: 70,
+			height: 116
+		});	
+	};
+	
+	var kidDownLeftFrames = [];
+	for(var i=350; i<630; i+=70){
+		kidDownLeftFrames.push({
+			x: i,
+			y: 0,
+			width: 70,
+			height: 116
+		});	
+	};
 	
 	var idleFrames = [];
 	idleFrames.push({
@@ -94,20 +106,20 @@
 		frames: idleFrames,
 		framesPerStep: 5,
 		framesPerRound: 300
-	}).addAnimation('right', {
-		frames: kidRightFrames,
+	}).addAnimation('up-right', {
+		frames: kidUpRightFrames,
 		framesPerStep: 5,
 		framesPerRound: 0
-	}).addAnimation('left', {
-		frames: kidLeftFrames,
+	}).addAnimation('up-left', {
+		frames: kidUpLeftFrames,
 		framesPerStep: 5,
 		framesPerRound: 0
-	}).addAnimation('up', {
-		frames: kidUpFrames,
+	}).addAnimation('down-right', {
+		frames: kidDownRightFrames,
 		framesPerStep: 5,
 		framesPerRound: 0
-	}).addAnimation('down', {
-		frames: kidDownFrames,
+	}).addAnimation('down-left', {
+		frames: kidDownLeftFrames,
 		framesPerStep: 5,
 		framesPerRound: 0
 	});
