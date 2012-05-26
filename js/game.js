@@ -5,11 +5,10 @@
 		.addResources({
 			'school_hallway':'images/school_hallway.jpg',
 			'school_front':'images/school_front.png',
-			'hammock':'images/hammock.png'
+			'hammock':'images/hammock.png',
+			'kid': 'images/kid_sprites.png'
 		});
 
-	var school = new Pac.Scene('schoolFront', 'Outside of my school', 'school_front');
-	
 	var leftHammock = new Pac.Obj('left hammock', 'hammock', {
 			x: 90,
 			y: 230,
@@ -46,7 +45,89 @@
 		framesPerRound: 15
 	});
 	
-	school.addObj(leftHammock).addObj(rightHammock);
+	
+	var kid = new Pac.Character('A kid', 'kid', {
+			x: 185,
+			y: 200,
+			width: 70,
+			height: 116
+	});
+	
+	var kidRightFrames = [];
+	for(var i=70; i<350; i+=70){
+		kidRightFrames.push({
+			x: i,
+			y: 0,
+			width: 70,
+			height: 116
+		});	
+	}
+	var kidLeftFrames = [];
+	for(var i=350; i<630; i+=70){
+		kidLeftFrames.push({
+			x: i,
+			y: 0,
+			width: 70,
+			height: 116
+		});	
+	}
+	var kidUpFrames = [];
+	for(var i=70; i<350; i+=70){
+		kidUpFrames.push({
+			x: i,
+			y: 116,
+			width: 70,
+			height: 116
+		});	
+	}
+	var kidDownFrames = kidLeftFrames;
+	
+	var idleFrames = [];
+	idleFrames.push({
+			x: 0,
+			y: 0,
+			width: 80,
+			height: 116
+	});
+	
+	kid.addAnimation('idle', {
+		frames: idleFrames,
+		framesPerStep: 5,
+		framesPerRound: 300
+	}).addAnimation('right', {
+		frames: kidRightFrames,
+		framesPerStep: 5,
+		framesPerRound: 0
+	}).addAnimation('left', {
+		frames: kidLeftFrames,
+		framesPerStep: 5,
+		framesPerRound: 0
+	}).addAnimation('up', {
+		frames: kidUpFrames,
+		framesPerStep: 5,
+		framesPerRound: 0
+	}).addAnimation('down', {
+		frames: kidDownFrames,
+		framesPerStep: 5,
+		framesPerRound: 0
+	});
+	
+	var area = {};
+	area.polygons = [[
+				{x: 0, y: 0},
+				{x: 800, y: 0},
+				{x: 800, y: 450},
+				{x: 0, y: 450}
+			]
+	];
+	
+	var walkableArea = new Pac.Path(area, kid);
+	
+	var school = new Pac.Scene('schoolFront', 'Outside of my school', 'school_front', {startingPosition: {x:120, y:425}});
+	
+	school.addObj(leftHammock)
+		.addObj(rightHammock)
+		.setPath(walkableArea);
 	
 	Pac.config({
 		commandBar: {
@@ -65,7 +146,7 @@
 		}
 	});
 	
-	Pac.init('canvas').addScene(school);
+	Pac.init('canvas').createCharacter(kid).addScene(school);
 	
 	Pac.changeToScene('schoolFront');
 	
