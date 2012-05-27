@@ -158,17 +158,30 @@
 	});
 	
 	var area = {};
-	area.polygons = [[
-				{x: 0, y: 0},
-				{x: 800, y: 0},
-				{x: 800, y: 450},
-				{x: 0, y: 450}
-			]
+	area.polygons = [
+		[{"x":201,"y":251},{"x":289,"y":249},{"x":293,"y":286},{"x":222,"y":343}],
+		[{"x":230,"y":342},{"x":297,"y":286},{"x":467,"y":281},{"x":402,"y":368}],
+		[{"x":226,"y":343},{"x":9,"y":414},{"x":6,"y":466},{"x":793,"y":467},{"x":794,"y":367},{"x":413,"y":371}]
 	];
+	
+	area.links = [];
+	
+	area.links[0] = [];
+	area.links[0][1] = {
+				x:266,
+				y:312
+			};
+			
+	area.links[1] = [];
+	area.links[1][2] = {
+				x:313,
+				y:357
+			};
+
 	
 	var walkableArea = new Pac.Path(area, kid);
 	
-	var school = new Pac.Scene('schoolFront', 'Outside of my school', 'school_front', {startingPosition: {x:120, y:425}});
+	var school = new Pac.Scene('schoolFront', 'Outside of my school', 'school_front', {startingPosition: {"x":366,"y":317}});
 	
 	school.addObj(leftHammock)
 		.addObj(rightHammock)
@@ -231,12 +244,17 @@
 // FULLSCREEN 
 document.documentElement.addEventListener('keypress', function(ev){
 	var keycd = ev.which || ev.keyCode;
-	if(ev.ctrlKey && [10, 13].indexOf(keycd) !== -1 ){
-			var canvas = document.getElementById('canvas'),
-	    requestFullscreen = canvas.requestFullscreen || canvas.mozRequestFullScreen || canvas.webkitRequestFullScreen;
-	if(requestFullscreen){
-	    requestFullscreen.call(canvas);
-	}
+	
+	if(ev.ctrlKey && [10, 13].indexOf(keycd) !== -1 ) {
+		var canvas = document.getElementById('canvas');
+		var requestFullscreen = canvas.requestFullscreen || canvas.mozRequestFullScreen || canvas.webkitRequestFullScreen;
+
+		if(requestFullscreen){
+			requestFullscreen.call(canvas);
+		}
 	}
 	
 }, false);
+
+
+
