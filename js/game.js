@@ -3,7 +3,6 @@
 	
 	Pac.repository	
 		.addResources({
-			'school_hallway':'images/school_hallway.jpg',
 			'school_front':'images/school_front.png',
 			'hammock':'images/hammock.png',
 			'kid': 'images/kid_sprites.png'
@@ -98,12 +97,46 @@
 	idleFrames.push({
 			x: 0,
 			y: 0,
-			width: 80,
+			width: 70,
+			height: 116
+	});
+	idleFrames.push({
+			x: 630,
+			y: 0,
+			width: 70,
+			height: 116
+	});
+	idleFrames.push({
+			x: 0,
+			y: 116,
+			width: 70,
+			height: 116
+	});
+	idleFrames.push({
+			x: 630,
+			y: 116,
+			width: 70,
 			height: 116
 	});
 	
 	kid.addAnimation('idle', {
-		frames: idleFrames,
+		frames: [idleFrames[0]],
+		framesPerStep: 5,
+		framesPerRound: 300
+	}).addAnimation('idle-down-right', {
+		frames: [idleFrames[0]],
+		framesPerStep: 5,
+		framesPerRound: 300
+	}).addAnimation('idle-down-left', {
+		frames: [idleFrames[1]],
+		framesPerStep: 5,
+		framesPerRound: 300
+	}).addAnimation('idle-up-right', {
+		frames: [idleFrames[2]],
+		framesPerStep: 5,
+		framesPerRound: 300
+	}).addAnimation('idle-up-left', {
+		frames: [idleFrames[3]],
 		framesPerStep: 5,
 		framesPerRound: 300
 	}).addAnimation('up-right', {
